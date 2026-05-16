@@ -140,27 +140,30 @@ Example:
 
 Without federation:
 
-User
- ↓
-Salesforce
- ↓
+```text
+User  
+  ↓  
+Salesforce  
+  ↓  
 Separate password
+```
 
 With federation:
 
-User
- ↓
-Salesforce
- ↓
-Redirect
- ↓
-Entra ID
- ↓
-Authentication
- ↓
-Token returned
- ↓
-Access granted
+```text
+User  
+  ↓  
+Salesforce  
+  ↓  
+Redirect  
+  ↓  
+Entra ID  
+  ↓  
+Authentication  
+  ↓  
+Token returned  
+  ↓  
+Access granted  
 ```
 
 ---
@@ -180,21 +183,13 @@ Example:
 
 ```text
 User logs into Windows
-
 ↓
-
 Teams
-
 ↓
-
 Outlook
-
 ↓
-
 SharePoint
-
 ↓
-
 Salesforce
 
 (No additional login)
