@@ -86,6 +86,173 @@ Examples:
 
 ---
 
+# How Authentication and Authorization Work Together
+
+Modern cloud applications usually involve multiple components working together.
+
+Authentication and authorization are related but different processes.
+
+Authentication answers:
+
+> Who are you?
+
+Authorization answers:
+
+> What are you allowed to access?
+
+---
+
+# Example: Teams Login Flow
+
+When a user opens Microsoft Teams:
+
+```text
+User  
+↓  
+Teams Client  
+↓  
+Microsoft Entra ID  
+↓  
+Authentication  
+↓  
+ID Token issued  
+↓  
+Access Token issued  
+↓  
+Microsoft Graph API  
+↓  
+Token validation  
+↓  
+Authorization  
+↓  
+Access granted  
+```
+---
+
+# What Happens During the Flow
+
+### Step 1 — Authentication
+
+Teams needs to identify the user.
+
+Entra ID validates:
+
+- Username
+- Password
+- MFA
+- Conditional Access policies
+
+OIDC is commonly used here.
+
+Result:
+
+```text
+ID Token issued
+```
+
+Example:
+
+```json
+{
+"name":"Donald",
+"email":"donald@company.com"
+}
+```
+---
+
+### Step 2 — Access to Resources
+
+Teams needs access to:
+
+- Mailbox
+- Calendar
+- Chat
+- Files
+
+OAuth2 is commonly used here.
+
+Result:
+
+```text
+Access Token issued
+```
+
+Example:
+
+```json
+{
+"scp":"Mail.Read Chat.Read User.Read"
+}
+```
+
+---
+
+### Step 3 — Authorization
+
+Applications or APIs verify:
+
+- Is the token valid?
+- Is the token expired?
+- Does the user have permissions?
+
+Examples:
+
+- Mail.Read
+- Chat.Read
+- Files.Read
+
+If validation succeeds:
+
+```text
+Access granted
+```
+
+---
+
+# Component Responsibilities
+
+| Component | Responsibility |
+|---|---|
+| Entra ID | Authenticates users |
+| OIDC | User authentication flow |
+| OAuth2 | Delegated authorization |
+| ID Token | Identifies user |
+| Access Token | Provides resource access |
+| Application/API | Performs authorization |
+
+---
+
+# Key Takeaway
+
+Authentication:
+
+```text
+Who are you?
+```
+
+Authorization:
+
+```text
+What can you access?
+```
+
+Modern applications often use:
+
+```text
+OIDC
+    ↓
+Authentication
+
+OAuth2
+    ↓
+Authorization
+
+JWT
+    ↓
+Token transport
+```
+
+
 # Identity Provider (IdP)
 
 An Identity Provider authenticates users and issues tokens.
