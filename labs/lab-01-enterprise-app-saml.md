@@ -32,74 +32,50 @@ Microsoft Entra ID
 # Architecture
 
 ```text
-User
-
-↓
-
-Browser
-
-↓
-
-Salesforce
-
-↓
-
-Microsoft Entra ID
-
-↓
-
-SAML Assertion
-
-↓
-
-Salesforce
-
-↓
-
-Access granted
+User  
+↓  
+Browser  
+↓  
+Salesforce  
+↓   
+Microsoft Entra ID    
+↓  
+SAML Assertion  
+↓  
+Salesforce  
+↓  
+Access granted  
 ```
 
 ---
 
 # Step 1
 
-Open:
-
-Entra Admin Center
-
-↓
-
-Enterprise Applications
-
-↓
-
-New Application
+Open:  
+Entra Admin Center  
+↓  
+Enterprise Applications  
+↓  
+New Application  
 
 ---
 
 # Step 2
 
-Search:
-
-Salesforce
-
-↓
-
-Create application
+Search:  
+Salesforce  
+↓  
+Create application  
 
 ---
 
 # Step 3
 
-Open:
-
+Open:  
 Single Sign-On
-
-↓
-
-Select:
-
-SAML
+↓  
+Select:  
+SAML  
 
 ---
 
