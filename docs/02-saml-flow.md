@@ -65,14 +65,111 @@ Typical data:
 - Groups
 - Roles
 
-Example:
+---
+
+# Is SAML Assertion a Token?
+
+SAML Assertions function similarly to tokens because they transport identity information between trusted systems.
+
+However, SAML Assertions and JWT tokens are not identical technologies.
+
+---
+
+# Comparison
+
+| Feature | SAML Assertion | JWT Token |
+|---|---:|---:|
+| Purpose | Transport identity information | Transport identity and access information |
+| Format | XML | JSON |
+| Appearance | XML document | xxxxx.yyyyy.zzzzz |
+| Commonly used by | SAML | OAuth2 / OIDC |
+| Contains claims | ✅ | ✅ |
+| Digitally signed | ✅ | ✅ |
+| Can be encrypted | ✅ | ✅ |
+| Browser redirect dependent | Usually | Less dependent |
+
+---
+
+# SAML Assertion Example
 
 ```xml
+<saml:Assertion>
+
+<saml:Subject>
+donald@company.com
+</saml:Subject>
+
 <saml:Attribute Name="email">
 donald@company.com
 </saml:Attribute>
+
+<saml:Attribute Name="role">
+Admin
+</saml:Attribute>
+
+</saml:Assertion>
 ```
 
+---
+
+# JWT Example
+
+```json
+{
+"name":"Donald",
+"email":"donald@company.com",
+"role":"Admin"
+}
+```
+JWT encoded:
+
+```text
+xxxxx.yyyyy.zzzzz
+```
+
+---
+
+# Conceptual Comparison
+
+SAML authentication:
+
+```text
+User  
+↓  
+Entra ID  
+↓  
+SAML Assertion  
+↓  
+Salesforce  
+```
+
+OIDC authentication:
+
+```text
+User  
+↓  
+Entra ID  
+↓  
+JWT Token  
+↓  
+Application  
+```
+
+---
+
+# Key Takeaway
+
+SAML Assertions and JWT tokens serve similar purposes:
+
+- carry identity information
+- contain claims
+- are digitally signed
+- establish trust between systems
+
+The primary difference is the format:
+
+- SAML → XML
+- OIDC/OAuth2 → JSON
 ---
 
 # Advantages
