@@ -11,6 +11,20 @@ OAuth2 answers:
 OAuth2 itself does NOT authenticate users.
 
 ---
+# Typical Protocol Usage
+
+| Application | Common Protocol |
+|---|---|
+| Teams | OIDC + OAuth2 |
+| Outlook | OIDC + OAuth2 |
+| SharePoint | OIDC + OAuth2 |
+| Azure Portal | OIDC + OAuth2 |
+| Salesforce | SAML |
+| ServiceNow | SAML |
+| AWS | SAML |
+| Mobile Apps | OIDC |
+
+---
 
 # Main Components
 
@@ -27,25 +41,15 @@ OAuth2 itself does NOT authenticate users.
 
 ```text
 User
-
 ↓
-
 Application
-
 ↓
-
 Authorization Server
-
 ↓
-
 Access Token issued
-
 ↓
-
 API
-
 ↓
-
 Access granted
 ```
 
@@ -75,29 +79,17 @@ OIDC answers:
 
 ```text
 User
-
 ↓
-
 Application
-
 ↓
-
 Redirect to Entra ID
-
 ↓
-
 Authentication
-
 ↓
-
 ID Token + Access Token
-
 ↓
-
 Application validates token
-
 ↓
-
 Access granted
 ```
 
