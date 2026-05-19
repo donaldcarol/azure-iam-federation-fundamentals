@@ -25,6 +25,20 @@ Examples:
 | Service Provider (SP) | Provides application access |
 
 ---
+# Typical Protocol Usage
+
+| Application | Common Protocol |
+|---|---|
+| Teams | OIDC + OAuth2 |
+| Outlook | OIDC + OAuth2 |
+| SharePoint | OIDC + OAuth2 |
+| Azure Portal | OIDC + OAuth2 |
+| Salesforce | SAML |
+| ServiceNow | SAML |
+| AWS | SAML |
+| Mobile Apps | OIDC |
+
+---
 
 # SAML Authentication Flow
 
