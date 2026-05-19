@@ -232,27 +232,17 @@ Authorization granted
 Typical architecture:
 
 ```text
-User
-
-↓
-
-Application
-
-↓
-
-Identity Provider
-
-↓
-
-Token Service
-
-↓
-
-Application validates token
-
-↓
-
-Access to resources
+User  
+↓  
+Application  
+↓  
+Identity Provider  
+↓  
+Token Service  
+↓  
+Application validates token  
+↓  
+Access to resources  
 ```
 
 ---
