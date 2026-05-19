@@ -119,13 +119,17 @@ ID Token issued
 ↓  
 Access Token issued  
 ↓  
-Microsoft Graph API  
+token=ID + Acces token  
 ↓  
-Token validation  
+Teams receives token  
 ↓  
-Authorization  
+Teams calls Microsoft Graph API    
 ↓  
-Access granted  
+Graph validates token / Authorization    
+↓  
+Returns data  
+↓  
+Teams displays information
 ```
 ---
 
