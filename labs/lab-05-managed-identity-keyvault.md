@@ -9,23 +9,15 @@ Allow Azure VM access to Key Vault without secrets.
 # Architecture
 
 ```text
-Azure VM
-
-↓
-
-Managed Identity
-
-↓
-
-Token request
-
-↓
-
-Key Vault
-
-↓
-
-Secret retrieval
+Azure VM  
+↓  
+Managed Identity  
+↓  
+Token request  
+↓  
+Key Vault  
+↓  
+Secret retrieval  
 ```
 
 ---
