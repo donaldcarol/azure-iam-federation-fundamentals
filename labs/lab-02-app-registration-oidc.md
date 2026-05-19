@@ -104,21 +104,13 @@ ID Tokens
 Verify login flow:
 
 ```text
-User
-
-↓
-
-Application
-
-↓
-
-Entra ID
-
-↓
-
-ID Token returned
-
-↓
-
-Application validates token
+User  
+ ↓  
+Application  
+↓    
+Entra ID  
+↓  
+ID Token returned  
+↓  
+Application validates token  
 ```
