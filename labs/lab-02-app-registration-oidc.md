@@ -2,7 +2,7 @@
 
 # Objective
 
-Create an application using OpenID Connect authentication.
+Create a local web application that authenticates users using Microsoft Entra ID and OpenID Connect.
 
 ---
 
@@ -10,7 +10,7 @@ Create an application using OpenID Connect authentication.
 
 Application:
 
-Internal Web Application
+Local Node.js web application
 
 Authentication:
 
@@ -20,9 +20,46 @@ Protocol:
 
 OIDC
 
+Local URL:
+
+http://localhost:3000
+
+---
+
+# Prerequisites
+
+Install:
+
+- Node.js
+- Visual Studio Code
+- npm packages:
+
+```bash
+npm install express express-session @azure/msal-node dotenv
+```
+
 ---
 
 # Step 1
+
+Create project folder:
+
+```bash
+mkdir MyOIDCLab
+cd MyOIDCLab
+```
+
+Initialize:
+
+```bash
+npm init -y
+```
+
+---
+
+# Step 2
+
+Create App Registration
 
 Open:
 
@@ -36,10 +73,6 @@ App Registrations
 
 New Registration
 
----
-
-# Step 2
-
 Configure:
 
 Name:
@@ -52,16 +85,20 @@ Single tenant
 
 Redirect URI:
 
+```text
+Web
+
 http://localhost:3000/auth/redirect
+```
 
 ---
 
 # Step 3
 
-After creation note:
+Save generated values:
 
-- Application ID
-- Tenant ID
+- Application (Client) ID
+- Directory (Tenant) ID
 
 ---
 
@@ -73,7 +110,17 @@ Certificates & Secrets
 
 New Client Secret
 
-Save secret value
+Save:
+
+```text
+Secret Value
+```
+
+Important:
+
+Do NOT save Secret ID
+
+Save Secret Value
 
 ---
 
@@ -83,7 +130,7 @@ API Permissions
 
 Add:
 
-- OpenID
+- openid
 - profile
 - email
 
@@ -91,26 +138,83 @@ Add:
 
 # Step 6
 
+Create .env
+
+```text
+CLIENT_ID=xxxxxxxx
+TENANT_ID=xxxxxxxx
+CLIENT_SECRET=xxxxxxxx
+REDIRECT_URI=http://localhost:3000/auth/redirect
+```
+
+---
+
+# Step 7
+
+Start local application
+
+```bash
+node server.js
+```
+
+---
+
+# Expected Flow
+
+```text
+User
+
+↓
+
+Local Application
+
+↓
+
+Entra ID
+
+↓
+
 Authentication
 
-Enable:
+↓
 
-ID Tokens
+ID Token
+
+↓
+
+Local Application
+
+↓
+
+Authenticated session created
+```
 
 ---
 
 # Validation
 
-Verify login flow:
+Verify:
 
-```text
-User  
- ↓  
-Application  
-↓    
-Entra ID  
-↓  
-ID Token returned  
-↓  
-Application validates token  
-```
+- Browser redirects to Entra
+- Login page appears
+- MFA works
+- ID token returned
+- User session created
+
+---
+
+# Troubleshooting
+
+Common issues:
+
+AADSTS50011
+
+Reply URL mismatch
+
+AADSTS7000215
+
+Invalid client secret
+
+AADSTS9002326
+
+Cross-origin issue
